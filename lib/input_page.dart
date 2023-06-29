@@ -12,15 +12,51 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BMI CALCULATOR'),
+        backgroundColor: const Color(0xFF0A0E21),
+        title: const Center(child: Text('BMI CALCULATOR')),
       ),
-      body: const Center(
-        child: Text('Body Text'),
+      body:  const Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(child: Reuse(colour: Color(0xFF1D1E33),)),
+                Expanded(child: Reuse(colour: Color(0xFF1D1E33),)),
+              ],
+            ),
+          ),
+          Expanded(child: Reuse(colour: Color(0xFF1D1E33),)),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: Reuse(colour: Color(0xFF1D1E33),),
+                ),
+                Expanded(
+                  child: Reuse(colour: Color(0xFF1D1E33),),
+                )
+              ],
+            ),
+          ),
+        ],
       ),
-      floatingActionButton:  FloatingActionButton(
-        onPressed: () {  },
-        child: Icon(Icons.add),
-      ),
+    );
+  }
+}
+
+class Reuse extends StatelessWidget {
+
+  const Reuse({super.key, required this.colour});
+  final Color colour;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+          color:  colour,
+          border: Border.all(),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
     );
   }
 }
